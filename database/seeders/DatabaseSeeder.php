@@ -13,16 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(
-            [
-                JurusanSeeder::class, SiswaSeeder::class, GuruSeeder::class,
-                // Tugas Baru
-                BarangSeeder::class,
-                PembeliSeeder::class,
-                SupplierSeeder::class,
-                PembayaranSeeder::class,
-                TransaksiSeeder::class
-            ]
-        );
+        // \App\Models\User::factory(10)->create();
     }
 }
