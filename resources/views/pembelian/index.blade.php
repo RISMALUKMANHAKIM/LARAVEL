@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Pembelian')
+@section('header', 'Data Pembelian')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -36,9 +39,9 @@
                                             <td>{{ $data->nama_pembeli }}</td>
                                             <td>{{ date('d M Y', strtotime($data->tanggal_pembelian)) }}</td>
                                             <td>{{ $data->nama_barang }}</td>
-                                            <td>Rp{{ number_format($data->harga_satuan, 2, ',', '.') }}</td>
-                                            <td>{{ $data->jumlah_barang }}</td>
-                                            <td>Rp{{ number_format($data->total_harga, 2, ',', '.') }}</td>
+                                            <td>Rp{{ number_format($data->harga_satuan, 0, ',', '.') }}</td>
+                                            <td>{{ number_format($data->jumlah_barang, 0, ',', '.') }}</td>
+                                            <td>Rp{{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>
                                                 <form action="{{ route('pembelian.destroy', $data->id) }}" method="post">
                                                     @csrf

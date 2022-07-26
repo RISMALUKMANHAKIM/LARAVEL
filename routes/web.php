@@ -5,6 +5,8 @@
 
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\WaliController;
+use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,13 +28,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-// route backend atau admin
-Route::group(['prefix'=>'admin', 'middleware'=>['auth']],function(){
-    Route::get('/',function(){
-        return view ('admin.index');
+// route backend / admin
+Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function(){
+    Route::get('/', function(){
+        return view('admin.index');
     });
     Route::resource('siswa', SiswaController::class);
     Route::resource('pembelian', PembelianController::class);
+    Route::resource('wali', WaliController::class);
+    Route::resource('guru', GuruController::class);
 });
-
